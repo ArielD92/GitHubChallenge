@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wyzwanie GitHub</string>
+    <string name="image_view_description">image view description</string>
+    <string name="login">Zaloguj się</string>
+    <string name="retry">Ponów</string>
+    <string name="load_error">Wystąpił błąd podczas ładowania danych.</string>
+    <string name="github_user_name">Wpisz nazwę użytkownika GitHub</string>
+    <string name="empty_string">Brak danych do wyświetlenia</string>
+    <string name="language">Język:</string>
+    <string name="link">Link:</string>
+    <string name="name">Nazwa:</string>
+    <string name="user_login">Login:</string>
+    <string name="url_address">Adres URL:</string>
+    <string name="account_type">Typ konta:</string>
+    <string name="public_repos">Liczba publicznych repozytoriów:</string>
+    <string name="followers_number">Liczba followersów:</string>
+    <string name="following_number">Liczba followowanych:</string>
+    <string name="account_created">Data utworzenia konta:</string>
+    <string name="account_update">Data ostatniej aktualizacji:</string>
+    <string name="user_bio">Krótka biografia użytkownika:</string>
+    <string name="github_search_hint">Wyszukaj użytkoników GitHuba</string>
+    <string name="repos_search_hint">Wyszukaj repozytorium</string>
+    <string name="search_button">Szukaj</string>
+</resources>

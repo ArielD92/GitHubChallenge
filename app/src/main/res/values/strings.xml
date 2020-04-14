@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">GitHub Challenge</string>
+    <string name="image_view_description">image view description</string>
+    <string name="login">Log In</string>
+    <string name="retry">Retry</string>
+    <string name="load_error">An error occurred while loading your data from Github</string>
+    <string name="github_user_name">Set user gitHub login</string>
+    <string name="empty_string">No value to display</string>
+    <string name="language">Language:</string>
+    <string name="link">Link:</string>
+    <string name="name">Name:</string>
+    <string name="user_login">Login:</string>
+    <string name="url_address">URL:</string>
+    <string name="account_type">Account type:</string>
+    <string name="public_repos">Number of public repos:</string>
+    <string name="followers_number">Followers number:</string>
+    <string name="following_number">Following numbers:</string>
+    <string name="account_created">Created date:</string>
+    <string name="account_update">Last update date:</string>
+    <string name="user_bio">Short user biography</string>
+    <string name="github_search_hint">Search GitHub user</string>
+    <string name="repos_search_hint">Search a repository</string>
+    <string name="search_button">Search</string>
 </resources>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.adsoft.githubchallenge.viewModel.ReposViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal_50"
+        android:background="@drawable/custom_item_shape">
+
+        <ImageView
+            android:id="@+id/reposIcon"
+            android:layout_width="@dimen/large_150"
+            android:layout_height="@dimen/large_150"
+            android:layout_margin="@dimen/normal_50"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/reposInfoContainer"
+            android:layout_width="@dimen/empty_size"
+            android:layout_height="@dimen/huge_75"
+            android:layout_margin="@dimen/normal_50"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/reposIcon"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/repoNameHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_50"
+                android:text="@string/name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/repoName"
+                android:layout_width="@dimen/empty_size"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/normal_50"
+                android:layout_marginEnd="@dimen/normal_50"
+                android:gravity="end"
+                app:layout_constraintBottom_toBottomOf="@id/repoNameHeader"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/repoNameHeader"
+                app:layout_constraintTop_toTopOf="@id/repoNameHeader"
+                app:mutableText="@{viewModel.repositoryName}" />
+
+            <TextView
+                android:id="@+id/repoLinkHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_50"
+                android:text="@string/link"
+                app:layout_constraintBottom_toTopOf="@+id/repoLanguageHeader"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/repoNameHeader" />
+
+            <TextView
+                android:id="@+id/repoLink"
+                android:layout_width="@dimen/empty_size"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/normal_50"
+                android:layout_marginEnd="@dimen/normal_50"
+                android:autoLink="web"
+                android:gravity="end"
+                app:layout_constraintBottom_toBottomOf="@id/repoLinkHeader"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/repoLinkHeader"
+                app:layout_constraintTop_toTopOf="@id/repoLinkHeader"
+                app:mutableText="@{viewModel.repositoryLink}" />
+
+
+
+            <TextView
+                android:id="@+id/repoLanguageHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_50"
+                android:text="@string/language"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/repoLanguage"
+                android:layout_width="@dimen/empty_size"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/normal_50"
+                android:layout_marginEnd="@dimen/normal_50"
+                android:gravity="end"
+                app:layout_constraintBottom_toBottomOf="@id/repoLanguageHeader"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/repoLanguageHeader"
+                app:layout_constraintTop_toTopOf="@id/repoLanguageHeader"
+                app:mutableText="@{viewModel.repositoryLanguage}" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
