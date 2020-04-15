@@ -22,7 +22,8 @@
             android:layout_margin="@dimen/normal_50"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/image_view_description" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/reposInfoContainer"
@@ -79,7 +80,6 @@
                 app:layout_constraintStart_toEndOf="@id/repoLinkHeader"
                 app:layout_constraintTop_toTopOf="@id/repoLinkHeader"
                 app:mutableText="@{viewModel.repositoryLink}" />
-
 
 
             <TextView

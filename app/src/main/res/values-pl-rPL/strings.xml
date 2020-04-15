@@ -4,7 +4,7 @@
     <string name="image_view_description">image view description</string>
     <string name="login">Zaloguj się</string>
     <string name="retry">Ponów</string>
-    <string name="load_error">Wystąpił błąd podczas ładowania danych.</string>
+    <string name="load_error">Wystąpił błąd podczas ładowania danych z GitHuba.</string>
     <string name="github_user_name">Wpisz nazwę użytkownika GitHub</string>
     <string name="empty_string">Brak danych do wyświetlenia</string>
     <string name="language">Język:</string>
@@ -22,4 +22,12 @@
     <string name="github_search_hint">Wyszukaj użytkoników GitHuba</string>
     <string name="repos_search_hint">Wyszukaj repozytorium</string>
     <string name="search_button">Szukaj</string>
+    <string name="user_request_text">Proszę podaj prawdziwą nazwę użytkownika GitHub. Jest to konieczne do prawidłowego działania aplikacji.</string>
+    <string name="my_account">Moje konto</string>
+    <string name="repository">Repozytoria</string>
+    <string name="users">Użytkownicy</string>
+    <string name="favourite">Ulubieni</string>
+    <string name="add_to_favourite">Dodałeś do ulubionych</string>
+    <string name="add_to_favourite_user">Dodaj użytkonika do ulubionych</string>
+    <string name="public_repositories">PUBLICZNE REPOZYTORIA UZYTKOWNIKA</string>
 </resources>

@@ -1,7 +1,9 @@
 package com.adsoft.githubchallenge.utils
 
+import android.content.Context
 import android.content.ContextWrapper
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -17,3 +19,6 @@ fun View.getParentActivity(): AppCompatActivity? {
 }
 
 fun String.formatDate() = substringBefore("T")
+
+fun Context.displayToast(message: String): Toast =
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).apply { show() }

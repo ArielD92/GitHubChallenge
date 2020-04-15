@@ -1,9 +1,387 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.activities.UserDetailActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.adsoft.githubchallenge.viewModel.UserDetailViewModel" />
+
+        <variable
+            name="repositoryViewModel"
+            type="com.adsoft.githubchallenge.viewModel.LoadPublicRepositoryViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activities.UserDetailActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/userDataContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/normal_50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/userNameContainer"
+                android:layout_width="@dimen/empty_size"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_50"
+                android:background="@drawable/custom_item_shape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/userLoginHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:text="@string/user_login"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/userLogin"
+                    android:layout_width="@dimen/empty_size"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:gravity="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/userLoginHeader"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:mutableText="@{viewModel.userLogin}" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/accountContainer"
+                android:layout_width="@dimen/empty_size"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_50"
+                android:background="@drawable/custom_item_shape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userNameContainer">
+
+                <TextView
+                    android:id="@+id/userAccountUrlHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:text="@string/url_address"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/userAccountUrl"
+                    android:layout_width="@dimen/empty_size"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:autoLink="web"
+                    android:gravity="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/userAccountUrlHeader"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:mutableText="@{viewModel.userAccountUrl}" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/accountTypeContainer"
+                android:layout_width="@dimen/empty_size"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_50"
+                android:background="@drawable/custom_item_shape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountContainer">
+
+                <TextView
+                    android:id="@+id/userAccountTypeHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:text="@string/account_type"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/userAccountType"
+                    android:layout_width="@dimen/empty_size"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:gravity="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/userAccountTypeHeader"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:mutableText="@{viewModel.userAccountType}" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/publicRepositoryContainer"
+                android:layout_width="@dimen/empty_size"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_50"
+                android:background="@drawable/custom_item_shape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accountTypeContainer">
+
+                <TextView
+                    android:id="@+id/userPublicReposHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:text="@string/public_repos"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/userPublicRepos"
+                    android:layout_width="@dimen/empty_size"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:gravity="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/userPublicReposHeader"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:mutableText="@{viewModel.userPublicReposNumber}" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/followersContainer"
+                android:layout_width="@dimen/empty_size"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_50"
+                android:background="@drawable/custom_item_shape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/publicRepositoryContainer">
+
+                <TextView
+                    android:id="@+id/userFollowersHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:text="@string/followers_number"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/userFollowers"
+                    android:layout_width="@dimen/empty_size"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:gravity="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/userFollowersHeader"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:mutableText="@{viewModel.userFollowers}" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/followingContainer"
+                android:layout_width="@dimen/empty_size"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_50"
+                android:background="@drawable/custom_item_shape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/followersContainer">
+
+                <TextView
+                    android:id="@+id/userFollowingHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:text="@string/following_number"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/userFollowing"
+                    android:layout_width="@dimen/empty_size"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:gravity="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/userFollowingHeader"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:mutableText="@{viewModel.userFollowing}" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/userAccountCreatedContainer"
+                android:layout_width="@dimen/empty_size"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_50"
+                android:background="@drawable/custom_item_shape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/followingContainer">
+
+                <TextView
+                    android:id="@+id/userAccountCreatedHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:text="@string/account_created"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/userAccountCreated"
+                    android:layout_width="@dimen/empty_size"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:gravity="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/userAccountCreatedHeader"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:mutableText="@{viewModel.userAccountCreated}" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/userAccountLastUpdateContainer"
+                android:layout_width="@dimen/empty_size"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_50"
+                android:background="@drawable/custom_item_shape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userAccountCreatedContainer">
+
+                <TextView
+                    android:id="@+id/userAccountLastUpdateHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:text="@string/account_update"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/userAccountLastUpdate"
+                    android:layout_width="@dimen/empty_size"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:gravity="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/userAccountLastUpdateHeader"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:mutableText="@{viewModel.userAccountLastUpdate}" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/userBioContainer"
+                android:layout_width="@dimen/empty_size"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_50"
+                android:background="@drawable/custom_item_shape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userAccountLastUpdateContainer">
+
+                <TextView
+                    android:id="@+id/userBioHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:text="@string/user_bio"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/userBio"
+                    android:layout_width="@dimen/empty_size"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    android:gravity="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/userBioHeader"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:mutableText="@{viewModel.userBio}" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/addToFavouriteButton"
+            android:layout_width="@dimen/empty_size"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_100"
+            android:background="@drawable/custom_button_shape"
+            android:gravity="center"
+            android:text="@string/add_to_favourite_user"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userDataContainer" />
+
+        <TextView
+            android:id="@+id/publicReposRecyclerHeader"
+            android:layout_width="@dimen/empty_size"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_50"
+            android:gravity="center"
+            android:text="@string/public_repositories"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addToFavouriteButton" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/empty_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/publicReposRecyclerHeader">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/publicReposRecycler"
+                    android:layout_width="@dimen/empty_size"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_50"
+                    app:adapter="@{repositoryViewModel.recyclerAdapter}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/loadingProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:mutableVisibility="@{viewModel.loadingVisibility}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

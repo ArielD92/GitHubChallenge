@@ -34,7 +34,7 @@ class UsersViewModel : ViewModel(), RetrieveDataFromRequest<Users>, KoinComponen
     }
 
     fun bind(gitHubUser: GitHubUser) {
-        userLogin.value = gitHubUser.gitHubUserName ?: "Brak danych"
+        userLogin.value = gitHubUser.gitHubUserName
     }
 
     fun loadSearchUsers(searchQuery: String) {

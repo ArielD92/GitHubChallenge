@@ -2,7 +2,7 @@ package com.adsoft.githubchallenge.model
 
 import com.google.gson.annotations.SerializedName
 
-data class LoggedUserData(
+data class GitHubUserData(
     @SerializedName("login") val gitHubUserLogin: String,
     @SerializedName("avatar_url") val gitHubUserAvatarUrl: String,
     @SerializedName("html_url") val gitHubUserUrlToAccount: String,

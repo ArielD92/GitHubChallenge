@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.adsoft.githubchallenge.viewModel.LoadPublicRepositoryViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_50"
+        android:background="@drawable/custom_item_shape">
+
+        <TextView
+            android:id="@+id/repositoryLink"
+            android:layout_width="@dimen/empty_size"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_50"
+            android:autoLink="web"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:mutableText="@{viewModel.repositoryLink}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

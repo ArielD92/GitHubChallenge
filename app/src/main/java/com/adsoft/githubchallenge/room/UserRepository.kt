@@ -1,6 +1,17 @@
 package com.adsoft.githubchallenge.room
 
-class UserRepository (private val userDao: UserDao) {
+import com.adsoft.githubchallenge.model.GitHubUser
 
+class UserRepository(private val userDao: UserDao) {
+    suspend fun getLikedUsers() = userDao.getLikedUsers()
 
+    suspend fun addLikedUser(gitHubUser: GitHubUser, accountUrl: String) =
+        userDao.addLikedUser(
+            UserDatabaseModel(
+                userId = gitHubUser.gitHubUserId,
+                userLogin = gitHubUser.gitHubUserName,
+                userAvatarUrl = gitHubUser.gitHubUserAvatarUrl,
+                userProfileUrl = accountUrl
+            )
+        )
 }

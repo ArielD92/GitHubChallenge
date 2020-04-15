@@ -8,5 +8,6 @@ import androidx.room.PrimaryKey
 class UserDatabaseModel(
     @ColumnInfo(name = "user_id") @PrimaryKey val userId: Long,
     @ColumnInfo(name = "user_login") val userLogin: String,
-    @ColumnInfo(name = "user_avatar_url") val userAvatarUrl: String
+    @ColumnInfo(name = "user_avatar_url") val userAvatarUrl: String,
+    @ColumnInfo(name = "profile_url") val userProfileUrl: String
 )

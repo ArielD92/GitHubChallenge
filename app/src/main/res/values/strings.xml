@@ -3,7 +3,7 @@
     <string name="image_view_description">image view description</string>
     <string name="login">Log In</string>
     <string name="retry">Retry</string>
-    <string name="load_error">An error occurred while loading your data from Github</string>
+    <string name="load_error">An error occurred while loading data from Github</string>
     <string name="github_user_name">Set user gitHub login</string>
     <string name="empty_string">No value to display</string>
     <string name="language">Language:</string>
@@ -21,7 +21,12 @@
     <string name="github_search_hint">Search GitHub user</string>
     <string name="repos_search_hint">Search a repository</string>
     <string name="search_button">Search</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_request_text">Please enter real GitHub login. It is necessary to correct application working.</string>
+    <string name="my_account">My account</string>
+    <string name="repository">Repositories</string>
+    <string name="users">Users</string>
+    <string name="favourite">Favourite</string>
+    <string name="add_to_favourite">You add this user to favourite</string>
+    <string name="add_to_favourite_user">Tap to add to Favourite</string>
+    <string name="public_repositories">USERS PUBLIC REPOSITORIES</string>
 </resources>

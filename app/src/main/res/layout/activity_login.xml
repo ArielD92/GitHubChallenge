@@ -15,11 +15,11 @@
             android:layout_marginStart="@dimen/normal_50"
             android:layout_marginTop="@dimen/large_100"
             android:layout_marginEnd="@dimen/normal_50"
+            android:contentDescription="@string/image_view_description"
             android:src="@drawable/github_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/image_view_description" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/githubLoginText"
@@ -29,11 +29,24 @@
             android:layout_marginTop="@dimen/normal_200"
             android:layout_marginEnd="@dimen/normal_100"
             android:autofillHints=""
+            android:gravity="center"
             android:hint="@string/github_user_name"
             android:inputType="textAutoComplete"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/githubLogo" />
+
+        <TextView
+            android:id="@+id/userRequest"
+            android:layout_width="@dimen/empty_size"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_50"
+            android:gravity="center"
+            android:padding="@dimen/small_50"
+            android:text="@string/user_request_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/githubLoginText" />
 
         <Button
             android:id="@+id/loginButton"
@@ -48,6 +61,6 @@
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/githubLoginText" />
+            app:layout_constraintTop_toBottomOf="@+id/userRequest" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

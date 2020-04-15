@@ -22,7 +22,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:mutableVisibility="@{viewModel.loadingVisibility}"/>
+            app:mutableVisibility="@{viewModel.loadingVisibility}" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/usersSearcherContainer"

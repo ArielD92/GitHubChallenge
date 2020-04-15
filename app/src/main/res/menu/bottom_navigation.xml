@@ -3,17 +3,17 @@
     <item
         android:id="@+id/navigationLoggedUser"
         android:icon="@drawable/ic_account_user"
-        android:title="Moje konto" />
+        android:title="@string/my_account" />
     <item
         android:id="@+id/navigationRepos"
         android:icon="@drawable/ic_repos"
-        android:title="Repozytoria" />
+        android:title="@string/repository" />
     <item
         android:id="@+id/navigationGithubUsers"
         android:icon="@drawable/ic_users"
-        android:title="Użytkownicy" />
+        android:title="@string/users" />
     <item
-        android:id="@+id/navigationLikedUsers"
+        android:id="@+id/navigationFavouriteUsers"
         android:icon="@drawable/ic_favorite_users"
-        android:title="Polubieni" />
+        android:title="@string/favourite" />
 </menu>

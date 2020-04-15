@@ -23,7 +23,7 @@ fun networkModule() = module {
         OkHttpClient.Builder()
             .cache(null)
             .addInterceptor(HttpLoggingInterceptor().apply {
-                level = HttpLoggingInterceptor.Level.BODY
+                level = HttpLoggingInterceptor.Level.HEADERS
             })
             .retryOnConnectionFailure(true)
             .build()
