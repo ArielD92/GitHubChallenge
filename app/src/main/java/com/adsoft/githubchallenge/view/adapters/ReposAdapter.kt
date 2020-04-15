@@ -1,10 +1,11 @@
-package com.adsoft.githubchallenge.view
+package com.adsoft.githubchallenge.view.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.adsoft.githubchallenge.databinding.RepositoryItemRowBinding
 import com.adsoft.githubchallenge.model.Repository
+import com.adsoft.githubchallenge.view.viewHolders.ReposViewHolder
 
 class ReposAdapter : RecyclerView.Adapter<ReposViewHolder>() {
     private lateinit var reposList: List<Repository>

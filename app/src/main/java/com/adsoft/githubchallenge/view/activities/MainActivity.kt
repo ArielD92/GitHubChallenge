@@ -1,10 +1,13 @@
-package com.adsoft.githubchallenge.view
+package com.adsoft.githubchallenge.view.activities
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.adsoft.githubchallenge.R
+import com.adsoft.githubchallenge.view.fragments.LikedUsersFragment
+import com.adsoft.githubchallenge.view.fragments.LoggedUserFragment
+import com.adsoft.githubchallenge.view.fragments.ReposFragment
+import com.adsoft.githubchallenge.view.fragments.UsersFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -23,6 +26,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigationLoggedUser -> LoggedUserFragment()
                 R.id.navigationRepos -> ReposFragment()
                 R.id.navigationGithubUsers -> UsersFragment()
+                R.id.navigationLikedUsers -> LikedUsersFragment()
                 else -> LoggedUserFragment()
             }
             switchToFragment(loadFragment)

@@ -9,5 +9,5 @@ import org.koin.dsl.module
 fun viewModelsModule() = module {
     viewModel { LoggedUserViewModel(get()) }
     viewModel { ReposViewModel() }
-    viewModel { UsersViewModel(get()) }
+    viewModel { UsersViewModel() }
 }

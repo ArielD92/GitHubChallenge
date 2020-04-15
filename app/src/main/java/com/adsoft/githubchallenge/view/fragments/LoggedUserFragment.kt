@@ -1,4 +1,4 @@
-package com.adsoft.githubchallenge.view
+package com.adsoft.githubchallenge.view.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.adsoft.githubchallenge.R
 import com.adsoft.githubchallenge.databinding.LogedUserFragmentBinding
+import com.adsoft.githubchallenge.view.activities.LoginActivity
 import com.adsoft.githubchallenge.viewModel.LoggedUserViewModel
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar

@@ -1,4 +1,4 @@
-package com.adsoft.githubchallenge.view
+package com.adsoft.githubchallenge.view.fragments
 
 import android.os.Bundle
 import android.text.Editable
@@ -8,31 +8,34 @@ import android.view.ViewGroup
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.adsoft.githubchallenge.R
-import com.adsoft.githubchallenge.databinding.ReposFragmentBinding
+import com.adsoft.githubchallenge.databinding.UsersFragmentBinding
 import com.adsoft.githubchallenge.utils.OnTextChangedListener
-import com.adsoft.githubchallenge.viewModel.ReposViewModel
+import com.adsoft.githubchallenge.viewModel.UsersViewModel
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.repos_fragment.*
+import kotlinx.android.synthetic.main.users_fragment.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class ReposFragment : Fragment(), OnTextChangedListener {
-    private lateinit var reposBinding: ReposFragmentBinding
-    private val reposViewModel: ReposViewModel by viewModel()
+class UsersFragment : Fragment(), OnTextChangedListener {
+    private lateinit var usersBinding: UsersFragmentBinding
+    private val usersViewModel: UsersViewModel by viewModel()
     private var errorSnackbar: Snackbar? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         setupFragmentBinding(inflater, container)
-        reposBinding.reposListRecycler.layoutManager =
-            LinearLayoutManager(reposBinding.root.context, LinearLayoutManager.VERTICAL, false)
+        usersBinding.usersListRecycler.layoutManager =
+            GridLayoutManager(usersBinding.root.context, 2)
 
-        reposViewModel.errorMessage.observe(viewLifecycleOwner, Observer { errorMessage ->
+        usersViewModel.errorMessage.observe(viewLifecycleOwner, Observer { errorMessage ->
             if (errorMessage != null) showError(errorMessage) else hideError()
         })
 
-        reposBinding.viewModel = reposViewModel
-        return reposBinding.root
+        usersBinding.viewModel = usersViewModel
+        return usersBinding.root
     }
 
     override fun onStart() {
@@ -42,14 +45,14 @@ class ReposFragment : Fragment(), OnTextChangedListener {
     }
 
     private fun setupFragmentBinding(inflater: LayoutInflater, container: ViewGroup?) {
-        reposBinding = ReposFragmentBinding.inflate(inflater, container, false)
-        reposBinding.lifecycleOwner = this
+        usersBinding = UsersFragmentBinding.inflate(inflater, container, false)
+        usersBinding.lifecycleOwner = this
     }
 
     private fun showError(@StringRes errorMessage: Int) {
         errorSnackbar =
-            Snackbar.make(reposBinding.root, errorMessage, Snackbar.LENGTH_INDEFINITE)
-        errorSnackbar?.setAction(R.string.retry, reposViewModel.errorClickListener)
+            Snackbar.make(usersBinding.root, errorMessage, Snackbar.LENGTH_INDEFINITE)
+        errorSnackbar?.setAction(R.string.retry, usersViewModel.errorClickListener)
         errorSnackbar?.show()
     }
 
@@ -65,7 +68,7 @@ class ReposFragment : Fragment(), OnTextChangedListener {
         if (shouldSearchButtonBeEnabled()) {
             searchButton.isEnabled = true
             searchButton.setOnClickListener {
-                reposViewModel.loadSearchRepository(searcherEditText.text.toString())
+                usersViewModel.loadSearchUsers(searcherEditText.text.toString())
             }
         } else if(searcherEditText.text.isEmpty()) {
             searchButton.isEnabled = false

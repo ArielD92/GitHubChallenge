@@ -1,4 +1,4 @@
-package com.adsoft.githubchallenge.view
+package com.adsoft.githubchallenge.view.viewHolders
 
 import androidx.recyclerview.widget.RecyclerView
 import com.adsoft.githubchallenge.databinding.RepositoryItemRowBinding

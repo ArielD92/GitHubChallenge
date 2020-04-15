@@ -1,4 +1,4 @@
-package com.adsoft.githubchallenge.view
+package com.adsoft.githubchallenge.view.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

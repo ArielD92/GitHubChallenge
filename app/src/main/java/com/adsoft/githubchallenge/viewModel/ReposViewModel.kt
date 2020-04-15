@@ -8,7 +8,7 @@ import com.adsoft.githubchallenge.api.GitHubApiService
 import com.adsoft.githubchallenge.model.Repos
 import com.adsoft.githubchallenge.model.Repository
 import com.adsoft.githubchallenge.utils.RetrieveDataFromRequest
-import com.adsoft.githubchallenge.view.ReposAdapter
+import com.adsoft.githubchallenge.view.adapters.ReposAdapter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -21,10 +21,9 @@ class ReposViewModel : ViewModel(), RetrieveDataFromRequest<Repos>, KoinComponen
     private val gitHubApiService: GitHubApiService by inject()
     val repositoryName = MutableLiveData<String>()
     val repositoryLink = MutableLiveData<String>()
-    val repositoryOwner = MutableLiveData<String>()
     val repositoryLanguage = MutableLiveData<String>()
-    val recyclerAdapter: ReposAdapter = ReposAdapter()
-    val errorMessage: MutableLiveData<Int> = MutableLiveData()
+    val recyclerAdapter = ReposAdapter()
+    val errorMessage = MutableLiveData<Int>()
 
     val errorClickListener = View.OnClickListener {
         errorMessage.value = null
@@ -39,7 +38,6 @@ class ReposViewModel : ViewModel(), RetrieveDataFromRequest<Repos>, KoinComponen
     fun bind(repository: Repository) {
         repositoryName.value = repository.repositoryName ?: "Brak danych"
         repositoryLink.value = repository.repositoryUrl ?: "Brak danych"
-        repositoryOwner.value = repository.repositoryOwner.ownerLogin ?: "Brak danych"
         repositoryLanguage.value = repository.repositoryLanguage ?: "Brak danych"
     }
 
@@ -50,8 +48,8 @@ class ReposViewModel : ViewModel(), RetrieveDataFromRequest<Repos>, KoinComponen
             .doOnSubscribe { onRetrieveLoadDataStart() }
             .doOnTerminate { onRetrieveLoadDataFinish() }
             .subscribe(
-                {result -> onRetrieveLoadDataSuccess(result)},
-                {onRetrieveLoadDataError()}
+                { result -> onRetrieveLoadDataSuccess(result) },
+                { onRetrieveLoadDataError() }
             )
     }
 
@@ -74,7 +72,7 @@ class ReposViewModel : ViewModel(), RetrieveDataFromRequest<Repos>, KoinComponen
 
     override fun onCleared() {
         super.onCleared()
-        if(::reposSubscription.isInitialized) reposSubscription.dispose()
+        if (::reposSubscription.isInitialized) reposSubscription.dispose()
     }
 
 }

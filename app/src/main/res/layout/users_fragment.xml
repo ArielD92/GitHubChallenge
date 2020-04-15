@@ -21,7 +21,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:mutableVisibility="@{viewModel.loadingVisibility}"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/usersSearcherContainer"
@@ -65,6 +66,7 @@
             android:layout_width="@dimen/empty_size"
             android:layout_height="@dimen/empty_size"
             android:layout_margin="@dimen/small_50"
+            app:adapter="@{viewModel.recyclerAdapter}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

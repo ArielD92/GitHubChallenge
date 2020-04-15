@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.adsoft.githubchallenge.viewModel.UsersViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/userAvatar"
+            android:layout_width="@dimen/empty_size"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_50"
+            android:contentDescription="@string/image_view_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/userLogin"
+            android:layout_width="@dimen/empty_size"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_50"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userAvatar"
+            app:mutableText="@{viewModel.userLogin}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

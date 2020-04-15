@@ -1,7 +1,9 @@
 package com.adsoft.githubchallenge.main
 
 import android.app.Application
+import com.adsoft.githubchallenge.di.databaseModule
 import com.adsoft.githubchallenge.di.networkModule
+import com.adsoft.githubchallenge.di.repositoryModule
 import com.adsoft.githubchallenge.di.viewModelsModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -19,7 +21,9 @@ class GitHubApplication : Application() {
             androidContext(this@GitHubApplication)
             modules(listOf(
                 networkModule(),
-                viewModelsModule()
+                viewModelsModule(),
+                databaseModule(),
+                repositoryModule()
             ))
         }
     }
